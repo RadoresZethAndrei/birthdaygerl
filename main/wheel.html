@@ -220,7 +220,7 @@
 
   <h1>🎡 Spin the Wheel!</h1>
   <h1>BAWAL MANGDAYA</h1>
-  <h4>ang mangdaya mahuhulog sa hell. 👹</h4>
+  <h4>ang umulit mawawala ng saya sa oras. 👹</h4>
   <button class="back-btn" onclick="window.location.href='index.html'">← Back</button>
 
   <div class="wheel-wrapper">
@@ -244,16 +244,35 @@
       <h2>Ang nakuha mo ayyy...</h2>
       <div class="result-label" id="resultLabel"></div>
       <br>
-      <h3>SS moto tas send mo sakin. 
+      <h3 id="birthdayMsg">SS moto tas send mo sakin. 
         Happy Birthday Heart ❤️!</h3>
     </div>
   </div>
 
   <script>
     const sectors = [
-      { color: "#FFBC03", label: "Starlight sa emel" },
       { color: "#FF5A10", label: "Kung ano gusto mo, basta wag lang mamahalin, kupal." },
-      { color: "#f4a9c0", label: "Skin sa emel, ikaw pumili (yung pwedeng bilin)" },
+      { color: "#f4a9c0", label: "Sanrio sa emel?" },
+      { color: "#FFD700", label: "ewan ko" },
+      { color: "#FF69B4", label: "ewan ko" },
+      { color: "#00CED1", label: "ewan ko" },
+      { color: "#32CD32", label: "ewan ko" },
+      { color: "#FF6347", label: "ewan ko" },
+      { color: "#9370DB", label: "ewan ko" },
+      { color: "#FFA500", label: "ewan ko" },
+      { color: "#20B2AA", label: "ewan ko" },
+      { color: "#FF1493", label: "ewan ko" },
+      { color: "#4169E1", label: "dubai chewy choco" },
+      { color: "#FFD700", label: "wala" },
+      { color: "#FF69B4", label: "wala" },
+      { color: "#00CED1", label: "wala" },
+      { color: "#32CD32", label: "wala" },
+      { color: "#FF6347", label: "wala" },
+      { color: "#9370DB", label: "wala" },
+      { color: "#FFA500", label: "wala" },
+      { color: "#20B2AA", label: "wala" },
+      { color: "#FF1493", label: "wala" },
+      { color: "#4169E1", label: "wala" },
     ];
 
     const canvas = document.getElementById("wheel");
@@ -348,7 +367,20 @@
           spinning = false;
           spinBtn.textContent = "SPIN";
           const winner = getWinner();
-          resultLabel.textContent = winner.label;
+          const birthdayMsg = document.getElementById("birthdayMsg");
+          if (winner.label === "ewan ko") {
+            resultLabel.textContent = "ewan ko boi basta kung ano ba gusto mo, happy birthday.";
+            birthdayMsg.style.display = "block";
+          } else if (winner.label === "wala") {
+            resultLabel.textContent = "womp womp wala kang nakuha 😂😂😂";
+            birthdayMsg.style.display = "none";
+          } else if (winner.label === "dubai chewy choco") {
+            resultLabel.textContent = "WOWW DUBAI CHEWY CHOCO";
+            birthdayMsg.style.display = "block";
+          } else {
+            resultLabel.textContent = winner.label;
+            birthdayMsg.style.display = "block";
+          }
           resultOverlay.classList.add("show");
         }
         ang += angVel;
@@ -357,6 +389,7 @@
       drawWheel();
       requestAnimationFrame(loop);
     }
+    
 
     spinBtn.addEventListener("click", () => {
       if (spinning) return;
