@@ -1,0 +1,154 @@
+* {
+    font-family: "Pixelify Sans", sans-serif;
+    background-color: #feefe5;
+}
+
+html {
+    overflow: visible;
+}
+
+body {
+  margin: 0;
+  padding: clamp(10px, 2vw, 20px);
+  font-family: 'Pixelify Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: visible;
+}
+
+.cat-left, .cat-right {
+  width: clamp(100px, 20vw, 320px);
+  height: clamp(100px, 20vw, 320px);
+  flex-shrink: 0;
+}
+
+.cat-left {
+  animation: jump-left 0.8s infinite;
+  order: 1;
+}
+
+.cat-right {
+  animation: jump-right 0.8s infinite;
+  order: 3;
+}
+
+.cat-left img, .cat-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes jump-left {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes jump-right {
+  0%, 100% {
+    transform: scaleX(-1) translateY(0);
+  }
+  50% {
+    transform: scaleX(-1) translateY(-30px);
+  }
+}
+
+#birthdayText {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  color: #333;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: clamp(80px, 15vw, 130px);
+  padding: clamp(10px, 3vw, 20px);
+  overflow: visible;
+}
+
+.cake-container {
+  padding-right: clamp(0px, 10vw, 500px);
+  overflow: visible;
+}
+
+.youtube-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  padding: clamp(20px, 4vw, 40px) clamp(10px, 3vw, 20px);
+  box-sizing: border-box;
+  gap: clamp(10px, 2vw, 20px);
+}
+
+@media (max-width: 400px) {
+  .youtube-container {
+    flex-direction: column;
+  }
+  
+  .cat-left, .cat-right {
+    display: none;
+  }
+}
+
+@media (min-width: 401px) {
+  .youtube-container {
+    flex-wrap: nowrap;
+  }
+}
+
+.youtube-container iframe {
+  order: 2;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  flex-shrink: 1;
+  min-width: 0;
+  max-width: 560px;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+.cake {
+  position: relative;
+  animation: cake 1s infinite;
+  -webkit-animation: cake 1s infinite;
+  -moz-animation: cake 1s infinite;
+  -o-animation: cake 1s infinite;
+  transform: scale(clamp(3, 10vw, 8.5));
+  z-index: 1;
+  overflow: visible;
+}
+
+.wheel-btn-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.wheel-btn {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  background-color: #f4a9c0;
+  color: #333;
+  border: 3px solid #333;
+  padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 40px);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.1s;
+}
+
+.wheel-btn:hover {
+  transform: scale(1.05);
+}
+
+.wheel-btn:active {
+  transform: scale(0.95);
+}
